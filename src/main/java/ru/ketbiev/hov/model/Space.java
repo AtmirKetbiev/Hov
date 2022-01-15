@@ -14,6 +14,6 @@ public class Space {
     private List<Note> notes;
     private List<Task> tasks;
     private List<Account> accounts;
-    private int hostId;
-    private List<Integer> participantIds;
+    private long hostId;
+    private List<Long> participantIds;
 }

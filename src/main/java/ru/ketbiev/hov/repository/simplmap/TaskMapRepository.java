@@ -1,5 +1,6 @@
 package ru.ketbiev.hov.repository.simplmap;
 
+import ru.ketbiev.hov.model.Note;
 import ru.ketbiev.hov.model.Task;
 import ru.ketbiev.hov.repository.TaskRepository;
 
@@ -28,6 +29,13 @@ public class TaskMapRepository implements TaskRepository {
     public boolean delete(long id) {
         tasks.remove(id);
         return true;
+    }
+
+    @Override
+    public List<Task> findBySpaceId(long spaceId) {
+        return tasks.values().stream()
+                .filter(account -> account.getSpaceId() == spaceId)
+                .toList();
     }
 
     private long getId() {

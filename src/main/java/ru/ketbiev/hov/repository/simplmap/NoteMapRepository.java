@@ -30,6 +30,13 @@ public class NoteMapRepository implements NoteRepository {
         return true;
     }
 
+    @Override
+    public List<Note> findBySpaceId(long spaceId) {
+        return notes.values().stream()
+                .filter(account -> account.getSpaceId() == spaceId)
+                .toList();
+    }
+
     private long getId() {
         return notes.keySet().stream()
                 .max(Comparator.naturalOrder())

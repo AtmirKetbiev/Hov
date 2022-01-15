@@ -9,5 +9,5 @@ public class Account {
     private String password;
     private String url;
     private String text;
-    private int spaceId;
+    private long spaceId;
 }

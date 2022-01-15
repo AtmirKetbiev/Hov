@@ -30,6 +30,14 @@ public class SpaceMapRepository implements SpaceRepository {
         return true;
     }
 
+    @Override
+    public List<Space> findByUserId(long userId) {
+        return spaces.values().stream()
+                .filter(space -> space.getHostId() == userId
+                        || space.getParticipantIds().contains(userId))
+                .toList();
+    }
+
     private long getId() {
         return spaces.keySet().stream()
                 .max(Comparator.naturalOrder())

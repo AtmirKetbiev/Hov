@@ -30,6 +30,13 @@ public class AccountMapRepository implements AccountRepository {
         return true;
     }
 
+    @Override
+    public List<Account> findBySpaceId(long spaceId) {
+        return accounts.values().stream()
+                .filter(account -> account.getSpaceId() == spaceId)
+                .toList();
+    }
+
     private long getId() {
         return accounts.keySet().stream()
                 .max(Comparator.naturalOrder())

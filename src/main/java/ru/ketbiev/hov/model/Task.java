@@ -9,5 +9,5 @@ public class Task {
     private long id;
     private String title;
     private Map<String, Boolean> pointMap;
-    private int spaceId;
+    private long spaceId;
 }
