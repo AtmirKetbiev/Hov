@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class Space {
-    private int id;
+    private long id;
     private String title;
     private OffsetDateTime createTime;
     private OffsetDateTime lastUpdate;

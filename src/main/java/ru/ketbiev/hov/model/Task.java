@@ -6,7 +6,7 @@ import java.util.Map;
 
 @Data
 public class Task {
-    private int id;
+    private long id;
     private String title;
     private Map<String, Boolean> pointMap;
     private int spaceId;
