@@ -8,5 +8,6 @@ import java.util.Map;
 public class Task {
     private int id;
     private String title;
-    private Map<Integer, TaskPoint> pointMap;
+    private Map<String, Boolean> pointMap;
+    private int spaceId;
 }

@@ -9,11 +9,11 @@ import java.util.List;
 public class Space {
     private int id;
     private String title;
-    private int hostId;
     private OffsetDateTime createTime;
     private OffsetDateTime lastUpdate;
     private List<Note> notes;
     private List<Task> tasks;
     private List<Account> accounts;
+    private int hostId;
     private List<Integer> participantIds;
 }
