@@ -1,25 +1,32 @@
 package ru.ketbiev.hov.service;
 
 import ru.ketbiev.hov.model.Space;
+import ru.ketbiev.hov.repository.SpaceRepository;
 
 public class SpaceService implements CrudService<Space> {
+    private SpaceRepository spaceRepository;
+
+    public SpaceService(SpaceRepository spaceRepository) {
+        this.spaceRepository = spaceRepository;
+    }
+
     @Override
     public Space add(Space space) {
-        return null;
+        return spaceRepository.add(space);
     }
 
     @Override
-    public Space get(int id) {
-        return null;
+    public Space get(long id) {
+        return spaceRepository.get(id);
     }
 
     @Override
-    public Space update(Space space) {
-        return null;
+    public boolean update(Space space) {
+        return spaceRepository.update(space);
     }
 
     @Override
-    public boolean delete(int id) {
-        return false;
+    public boolean delete(long id) {
+        return spaceRepository.delete(id);
     }
 }
