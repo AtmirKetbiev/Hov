@@ -3,7 +3,7 @@ package ru.ketbiev.hov.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import ru.ketbiev.hov.core.service.*;
-import ru.ketbiev.hov.infraestructure.repository.simplmap.*;
+import ru.ketbiev.hov.infrastructure.repository.simplmap.*;
 
 @Configuration
 public class Config {

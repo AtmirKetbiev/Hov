@@ -1,4 +1,4 @@
-package ru.ketbiev.hov.infraestructure.rest.spring;
+package ru.ketbiev.hov.infrastructure.rest.spring;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package ru.ketbiev.hov.infraestructure.repository.simplmap;
+package ru.ketbiev.hov.infrastructure.repository.simplmap;
 
 import ru.ketbiev.hov.core.model.User;
 import ru.ketbiev.hov.core.port.repository.UserRepository;
