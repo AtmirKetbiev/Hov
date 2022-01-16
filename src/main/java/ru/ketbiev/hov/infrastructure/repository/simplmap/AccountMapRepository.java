@@ -10,7 +10,9 @@ public class AccountMapRepository implements AccountRepository {
 
     @Override
     public Account add(Account account) {
-        return accounts.put(getId(), account);
+        account.setId(getId());
+        accounts.put(account.getId(), account);
+        return accounts.get(account.getId());
     }
 
     @Override
@@ -40,6 +42,6 @@ public class AccountMapRepository implements AccountRepository {
     private long getId() {
         return accounts.keySet().stream()
                 .max(Comparator.naturalOrder())
-                .orElse(1L);
+                .orElse(0L) + 1;
     }
 }

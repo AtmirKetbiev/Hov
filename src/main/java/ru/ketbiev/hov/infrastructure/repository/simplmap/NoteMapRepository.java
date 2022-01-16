@@ -10,7 +10,9 @@ public class NoteMapRepository implements NoteRepository {
 
     @Override
     public Note add(Note note) {
-        return notes.put(getId(), note);
+        note.setId(getId());
+        notes.put(note.getId(), note);
+        return notes.get(note.getId());
     }
 
     @Override
@@ -40,6 +42,6 @@ public class NoteMapRepository implements NoteRepository {
     private long getId() {
         return notes.keySet().stream()
                 .max(Comparator.naturalOrder())
-                .orElse(1L);
+                .orElse(0L) + 1;
     }
 }

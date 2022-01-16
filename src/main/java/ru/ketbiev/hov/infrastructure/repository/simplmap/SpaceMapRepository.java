@@ -10,7 +10,9 @@ public class SpaceMapRepository implements SpaceRepository {
 
     @Override
     public Space add(Space space) {
-        return spaces.put(getId(), space);
+        space.setId(getId());
+        spaces.put(space.getId(), space);
+        return spaces.get(space.getId());
     }
 
     @Override
@@ -41,6 +43,6 @@ public class SpaceMapRepository implements SpaceRepository {
     private long getId() {
         return spaces.keySet().stream()
                 .max(Comparator.naturalOrder())
-                .orElse(1L);
+                .orElse(0L) + 1;
     }
 }

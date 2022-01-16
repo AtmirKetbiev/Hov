@@ -10,7 +10,9 @@ public class TaskMapRepository implements TaskRepository {
 
     @Override
     public Task add(Task task) {
-        return tasks.put(getId(), task);
+        task.setId(getId());
+        tasks.put(task.getId(), task);
+        return tasks.get(task.getId());
     }
 
     @Override
@@ -40,6 +42,6 @@ public class TaskMapRepository implements TaskRepository {
     private long getId() {
         return tasks.keySet().stream()
                 .max(Comparator.naturalOrder())
-                .orElse(1L);
+                .orElse(0L) + 1;
     }
 }
