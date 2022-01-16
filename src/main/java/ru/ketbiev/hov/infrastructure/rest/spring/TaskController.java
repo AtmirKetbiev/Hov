@@ -6,29 +6,39 @@ import ru.ketbiev.hov.core.model.Task;
 import ru.ketbiev.hov.core.service.TaskService;
 
 @RestController
-@RequestMapping("task")
+@RequestMapping("users/{user_id}/spaces/{spaces_id}/tasks")
 public class TaskController {
 
     @Autowired
     private TaskService taskService;
 
     @GetMapping("/{id}")
-    public Task get(@PathVariable int id) {
+    public Task get(@PathVariable long user_id,
+                    @PathVariable long spaces_id,
+                    @PathVariable long id) {
         return taskService.get(id);
     }
 
     @PostMapping
-    public Task addNewNote(@RequestBody Task task) {
+    public Task addNewNote(@PathVariable long user_id,
+                           @PathVariable long spaces_id,
+                           @RequestBody Task task) {
+        task.setSpaceId(spaces_id);
         return taskService.add(task);
     }
 
     @PutMapping
-    public boolean updateNote(@RequestBody Task task) {
+    public boolean updateNote(@PathVariable long user_id,
+                              @PathVariable long spaces_id,
+                              @RequestBody Task task) {
+        task.setSpaceId(spaces_id);
         return taskService.update(task);
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteNote(@PathVariable int id) {
+    public boolean deleteNote(@PathVariable long user_id,
+                              @PathVariable long spaces_id,
+                              @PathVariable long id) {
         return taskService.delete(id);
     }
 

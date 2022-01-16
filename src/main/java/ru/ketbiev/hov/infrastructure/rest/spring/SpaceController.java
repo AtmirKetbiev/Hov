@@ -6,29 +6,35 @@ import ru.ketbiev.hov.core.model.Space;
 import ru.ketbiev.hov.core.service.SpaceService;
 
 @RestController
-@RequestMapping("space")
+@RequestMapping("users/{user_id}/spaces")
 public class SpaceController {
 
     @Autowired
     private SpaceService spaceService;
 
     @GetMapping("/{id}")
-    public Space get(@PathVariable int id) {
+    public Space get(@PathVariable long user_id,
+                     @PathVariable long id) {
         return spaceService.get(id);
     }
 
     @PostMapping
-    public Space addNewNote(@RequestBody Space space) {
+    public Space addNewNote(@PathVariable long user_id,
+                            @RequestBody Space space) {
+        space.setHostId(user_id);
         return spaceService.add(space);
     }
 
     @PutMapping
-    public boolean updateNote(@RequestBody Space space) {
+    public boolean updateNote(@PathVariable long user_id,
+                              @RequestBody Space space) {
+        space.setHostId(user_id);
         return spaceService.update(space);
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteNote(@PathVariable int id) {
+    public boolean deleteNote(@PathVariable long user_id,
+                              @PathVariable long id) {
         return spaceService.delete(id);
     }
 

@@ -13,7 +13,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{id}")
-    public User get(@PathVariable int id) {
+    public User get(@PathVariable long id) {
         return userService.get(id);
     }
 
@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public boolean deleteEmployees(@PathVariable int id) {
+    public boolean deleteEmployees(@PathVariable long id) {
         return userService.delete(id);
     }
 
