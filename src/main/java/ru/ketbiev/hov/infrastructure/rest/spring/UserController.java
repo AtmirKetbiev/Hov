@@ -1,11 +1,7 @@
 package ru.ketbiev.hov.infrastructure.rest.spring;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.ketbiev.hov.core.model.User;
 import ru.ketbiev.hov.core.service.UserService;
 
@@ -16,13 +12,24 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/{id}")
+    public User get(@PathVariable int id) {
+        return userService.get(id);
+    }
+
     @PostMapping
-    public User addNewUser(@RequestBody String data) {
-        JSONObject userJson = new JSONObject(data);
-        User user = new User();
-        user.setLogin(userJson.getString("login"));
-        user.setPassword(userJson.getString("password"));
+    public User addNewUser(@RequestBody User user) {
         return userService.add(user);
+    }
+
+    @PutMapping
+    public boolean updateEmployee (@RequestBody User user) {
+        return userService.update(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean deleteEmployees(@PathVariable int id) {
+        return userService.delete(id);
     }
 
 }

@@ -10,7 +10,9 @@ public class UserMapRepository implements UserRepository {
 
     @Override
     public User add(User user) {
-        return users.put(getId(), user);
+        user.setId(getId());
+        users.put(user.getId(), user);
+        return users.get(user.getId());
     }
 
     @Override
@@ -33,6 +35,6 @@ public class UserMapRepository implements UserRepository {
     private long getId() {
         return users.keySet().stream()
                 .max(Comparator.naturalOrder())
-                .orElse(1L);
+                .orElse(0L) + 1;
     }
 }
