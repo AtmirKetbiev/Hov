@@ -1,4 +1,4 @@
-package ru.ketbiev.hov.service;
+package ru.ketbiev.hov.core.service;
 
 public interface CrudService<T> {
     public T add(T t);

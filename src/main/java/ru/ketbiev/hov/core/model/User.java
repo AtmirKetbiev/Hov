@@ -1,4 +1,4 @@
-package ru.ketbiev.hov.model;
+package ru.ketbiev.hov.core.model;
 
 import lombok.Data;
 

@@ -1,8 +1,7 @@
 package ru.ketbiev.hov.repository.simplmap;
 
-import ru.ketbiev.hov.model.Note;
-import ru.ketbiev.hov.model.Task;
-import ru.ketbiev.hov.repository.TaskRepository;
+import ru.ketbiev.hov.core.model.Task;
+import ru.ketbiev.hov.core.storage.TaskRepository;
 
 import java.util.*;
 

@@ -1,6 +1,6 @@
-package ru.ketbiev.hov.repository;
+package ru.ketbiev.hov.core.storage;
 
-import ru.ketbiev.hov.model.User;
+import ru.ketbiev.hov.core.model.User;
 
 public interface UserRepository {
     User add(User user);

@@ -1,6 +1,6 @@
-package ru.ketbiev.hov.repository;
+package ru.ketbiev.hov.core.storage;
 
-import ru.ketbiev.hov.model.Space;
+import ru.ketbiev.hov.core.model.Space;
 
 import java.util.List;
 

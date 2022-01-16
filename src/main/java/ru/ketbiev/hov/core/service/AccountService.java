@@ -1,7 +1,7 @@
-package ru.ketbiev.hov.service;
+package ru.ketbiev.hov.core.service;
 
-import ru.ketbiev.hov.model.Account;
-import ru.ketbiev.hov.repository.AccountRepository;
+import ru.ketbiev.hov.core.model.Account;
+import ru.ketbiev.hov.core.storage.AccountRepository;
 
 public class AccountService implements CrudService<Account> {
     private AccountRepository accountRepository;

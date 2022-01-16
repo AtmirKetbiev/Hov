@@ -1,7 +1,7 @@
-package ru.ketbiev.hov.service;
+package ru.ketbiev.hov.core.service;
 
-import ru.ketbiev.hov.model.User;
-import ru.ketbiev.hov.repository.UserRepository;
+import ru.ketbiev.hov.core.model.User;
+import ru.ketbiev.hov.core.storage.UserRepository;
 
 public class UserService implements CrudService<User> {
     private UserRepository userRepository;

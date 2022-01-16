@@ -1,7 +1,7 @@
 package ru.ketbiev.hov.repository.simplmap;
 
-import ru.ketbiev.hov.model.Account;
-import ru.ketbiev.hov.repository.AccountRepository;
+import ru.ketbiev.hov.core.model.Account;
+import ru.ketbiev.hov.core.storage.AccountRepository;
 
 import java.util.*;
 

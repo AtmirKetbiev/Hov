@@ -1,7 +1,7 @@
 package ru.ketbiev.hov.repository.simplmap;
 
-import ru.ketbiev.hov.model.User;
-import ru.ketbiev.hov.repository.UserRepository;
+import ru.ketbiev.hov.core.model.User;
+import ru.ketbiev.hov.core.storage.UserRepository;
 
 import java.util.*;
 

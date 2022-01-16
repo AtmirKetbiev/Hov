@@ -1,7 +1,7 @@
 package ru.ketbiev.hov.repository.simplmap;
 
-import ru.ketbiev.hov.model.Note;
-import ru.ketbiev.hov.repository.NoteRepository;
+import ru.ketbiev.hov.core.model.Note;
+import ru.ketbiev.hov.core.storage.NoteRepository;
 
 import java.util.*;
 
