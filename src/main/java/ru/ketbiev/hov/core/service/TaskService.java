@@ -1,7 +1,7 @@
 package ru.ketbiev.hov.core.service;
 
 import ru.ketbiev.hov.core.model.Task;
-import ru.ketbiev.hov.core.storage.TaskRepository;
+import ru.ketbiev.hov.core.port.repository.TaskRepository;
 
 public class TaskService implements CrudService<Task>{
     private TaskRepository taskRepository;

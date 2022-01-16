@@ -1,7 +1,7 @@
 package ru.ketbiev.hov.core.service;
 
 import ru.ketbiev.hov.core.model.Note;
-import ru.ketbiev.hov.core.storage.NoteRepository;
+import ru.ketbiev.hov.core.port.repository.NoteRepository;
 
 public class NoteService implements CrudService<Note>{
     private NoteRepository noteRepository;

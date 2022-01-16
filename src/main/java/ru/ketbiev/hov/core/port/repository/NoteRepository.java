@@ -1,4 +1,4 @@
-package ru.ketbiev.hov.core.storage;
+package ru.ketbiev.hov.core.port.repository;
 
 import ru.ketbiev.hov.core.model.Note;
 

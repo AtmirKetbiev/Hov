@@ -1,7 +1,7 @@
-package ru.ketbiev.hov.repository.simplmap;
+package ru.ketbiev.hov.infraestructure.repository.simplmap;
 
 import ru.ketbiev.hov.core.model.Space;
-import ru.ketbiev.hov.core.storage.SpaceRepository;
+import ru.ketbiev.hov.core.port.repository.SpaceRepository;
 
 import java.util.*;
 

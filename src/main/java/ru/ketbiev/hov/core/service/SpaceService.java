@@ -1,7 +1,7 @@
 package ru.ketbiev.hov.core.service;
 
 import ru.ketbiev.hov.core.model.Space;
-import ru.ketbiev.hov.core.storage.SpaceRepository;
+import ru.ketbiev.hov.core.port.repository.SpaceRepository;
 
 public class SpaceService implements CrudService<Space> {
     private SpaceRepository spaceRepository;
