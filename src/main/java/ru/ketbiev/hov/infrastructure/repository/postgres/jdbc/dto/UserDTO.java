@@ -1,22 +1,16 @@
-package ru.ketbiev.hov.core.model;
+package ru.ketbiev.hov.infrastructure.repository.postgres.jdbc.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
-import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class UserDTO {
     private long id;
     private String login;
     private String password;
     private OffsetDateTime createDate;
     private OffsetDateTime lastLoginDate;
-    private List<Space> spaces;
-
-
 }

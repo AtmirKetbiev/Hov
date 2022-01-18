@@ -10,4 +10,8 @@ public class Task {
     private String title;
     private Map<String, Boolean> pointMap;
     private long spaceId;
+
+    public void addPointMap(String text, Boolean done) {
+        pointMap.put(text, done);
+    }
 }
