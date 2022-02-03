@@ -10,20 +10,29 @@ repositories {
 }
 
 dependencies {
+    //CORE
     implementation 'org.projectlombok:lombok:1.18.22'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.json:json:20211205'
 
+    //TEST
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 
+    //INFRASTRUCTURE
+
+    //repository.postgres
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+
+    //repository.postgres.jdbc
+
+    //repository.postgres.hibernate
+    implementation 'org.hibernate:hibernate-core:5.6.4.Final'
+
+    //rest
     implementation 'org.springframework.boot:spring-boot-starter:2.6.2'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
-
-    implementation 'org.json:json:20211205'
-
-
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
 }
 
 test {
