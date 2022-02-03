@@ -3,6 +3,8 @@ package ru.ketbiev.hov.core.service;
 import ru.ketbiev.hov.core.model.Space;
 import ru.ketbiev.hov.core.port.repository.SpaceRepository;
 
+import java.util.List;
+
 public class SpaceService implements CrudService<Space> {
     private SpaceRepository spaceRepository;
 
@@ -18,6 +20,10 @@ public class SpaceService implements CrudService<Space> {
     @Override
     public Space get(long id) {
         return spaceRepository.get(id);
+    }
+
+    public List<Space> getAllByUserId(long id) {
+        return spaceRepository.getAllByUserId(id);
     }
 
     @Override
