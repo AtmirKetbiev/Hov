@@ -13,5 +13,5 @@ public interface SpaceRepository {
 
     boolean delete(long id);
 
-    List<Space> findByUserId(long userId);
+    List<Space> getAllByUserId(long userId);
 }

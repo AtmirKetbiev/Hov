@@ -33,7 +33,7 @@ public class SpaceMapRepository implements SpaceRepository {
     }
 
     @Override
-    public List<Space> findByUserId(long userId) {
+    public List<Space> getAllByUserId(long userId) {
         return spaces.values().stream()
                 .filter(space -> space.getHostId() == userId
                         || space.getParticipantIds().contains(userId))
