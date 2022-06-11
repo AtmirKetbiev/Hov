@@ -30,4 +30,9 @@ public class NoteJdbcRepository implements NoteRepository {
     public List<Note> findBySpaceId(long spaceId) {
         return null;
     }
+
+    @Override
+    public List<Long> findIdBySpaceId(long userId) {
+        return null;
+    }
 }

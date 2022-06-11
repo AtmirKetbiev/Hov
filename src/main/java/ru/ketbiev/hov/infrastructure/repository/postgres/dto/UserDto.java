@@ -1,6 +1,4 @@
-package ru.ketbiev.hov.infrastructure.repository.postgres.hibernate.dto;
-
-import ru.ketbiev.hov.core.model.Space;
+package ru.ketbiev.hov.infrastructure.repository.postgres.dto;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
@@ -29,13 +27,17 @@ public class UserDto {
     @Column(name = "last_login")
     private OffsetDateTime lastLoginDate;
 
-    private List<Space> spaces = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL
+            //, mappedBy = "book"
+            , fetch = FetchType.EAGER)
+    @JoinColumn(name = "host_id")
+    private List<SpaceDto> spaces = new ArrayList<>();
 
     public UserDto() {
     }
 
     public UserDto(long id, String login, String password,
-                   OffsetDateTime createDate, OffsetDateTime lastLoginDate, List<Space> spaces) {
+                   OffsetDateTime createDate, OffsetDateTime lastLoginDate, List<SpaceDto> spaces) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -84,11 +86,11 @@ public class UserDto {
         this.lastLoginDate = lastLoginDate;
     }
 
-    public List<Space> getSpaces() {
+    public List<SpaceDto> getSpaces() {
         return spaces;
     }
 
-    public void setSpaces(List<Space> spaces) {
+    public void setSpaces(List<SpaceDto> spaces) {
         this.spaces = spaces;
     }
 

@@ -12,7 +12,7 @@ CREATE TABLE spaces (
   	id              	BIGINT GENERATED    BY DEFAULT AS IDENTITY NOT NULL PRIMARY KEY,
   	title             	VARCHAR(100)        NOT NULL,
   	create_space  		TIMESTAMP           NOT NULL,
-  	last_login 			TIMESTAMP,
+  	last_update 		TIMESTAMP,
 	host_id             BIGINT        		NOT NULL,
   	FOREIGN KEY (host_id)
   	    REFERENCES users (id)
@@ -21,7 +21,8 @@ CREATE TABLE spaces (
 CREATE TABLE accounts (
   	id              	BIGINT GENERATED    BY DEFAULT AS IDENTITY NOT NULL PRIMARY KEY,
   	title             	VARCHAR(100)        NOT NULL,
-  	password        	VARCHAR(30)         NOT NULL,
+  	login             	VARCHAR(100)        NOT NULL,
+  	password        	VARCHAR(100)        NOT NULL,
   	url 				TEXT,
 	text             	TEXT,
 	space_id            BIGINT        		NOT NULL,
@@ -41,16 +42,9 @@ CREATE TABLE notes (
 CREATE TABLE tasks (
   	id              	BIGINT GENERATED    BY DEFAULT AS IDENTITY NOT NULL PRIMARY KEY,
   	title             	VARCHAR(100)        NOT NULL,
+  	done            	BOOLEAN        		NOT NULL,
+  	task_date        TIMESTAMP              NOT NULL,
 	space_id            BIGINT        		NOT NULL,
   	FOREIGN KEY (space_id)
   	    REFERENCES spaces (id)
-);
-
-CREATE TABLE task_points (
-  	id              	BIGINT GENERATED    BY DEFAULT AS IDENTITY NOT NULL PRIMARY KEY,
-  	title             	VARCHAR(100)        NOT NULL,
-	done            	BOOLEAN        		NOT NULL,
-	task_id            	BIGINT        		NOT NULL,
-  	FOREIGN KEY (task_id)
-  	    REFERENCES tasks (id)
 );

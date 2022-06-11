@@ -30,4 +30,9 @@ public class AccountJdbcRepository implements AccountRepository {
     public List<Account> findBySpaceId(long spaceId) {
         return null;
     }
+
+    @Override
+    public List<Long> findIdBySpaceId(long userId) {
+        return null;
+    }
 }

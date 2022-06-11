@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.ketbiev.hov.core.model.User;
 import ru.ketbiev.hov.core.port.repository.UserRepository;
-import ru.ketbiev.hov.infrastructure.repository.postgres.hibernate.dto.UserDto;
+import ru.ketbiev.hov.infrastructure.repository.postgres.dto.UserDto;
 
 public class UserHibernateRepository implements UserRepository {
 

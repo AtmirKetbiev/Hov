@@ -2,13 +2,10 @@ package ru.ketbiev.hov.infrastructure.repository.postgres.jdbc;
 
 import ru.ketbiev.hov.core.model.*;
 import ru.ketbiev.hov.core.port.repository.UserRepository;
-import ru.ketbiev.hov.infrastructure.repository.postgres.jdbc.dto.UserDTO;
 
 import java.sql.*;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class UserJdbcRepository implements UserRepository {
@@ -29,14 +26,7 @@ public class UserJdbcRepository implements UserRepository {
             Connection con = DriverManager.getConnection(urlDB, userDB, passwordDB);
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(
-                    String.format("with idUser as (" +
-                                    "INSERT INTO users " +
-                                    "(login, password, create_account, last_login) " +
-                                    "VALUES ('%s' ,'%s' ,'%s' ,'%s') " +
-                                    "RETURNING id" +
-                                    ") " +
-                                    "SELECT * FROM idUser",
-                            user.getLogin(),
+                    create(user.getLogin(),
                             user.getPassword(),
                             user.getCreateDate(),
                             user.getLastLoginDate()));
@@ -124,5 +114,16 @@ public class UserJdbcRepository implements UserRepository {
     @Override
     public boolean delete(long id) {
         return false;
+    }
+
+    private String create(String login, String password, OffsetDateTime createDate, OffsetDateTime lastLoginDate) {
+        return String.format("with idUser as (" +
+                        "INSERT INTO users " +
+                        "(login, password, create_account, last_login) " +
+                        "VALUES ('%s' ,'%s' ,'%s' ,'%s') " +
+                        "RETURNING id" +
+                        ") " +
+                        "SELECT * FROM idUser",
+                login, password, createDate, lastLoginDate);
     }
 }

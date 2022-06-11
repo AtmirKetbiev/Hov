@@ -27,7 +27,13 @@ public class SpaceJdbcRepository implements SpaceRepository {
     }
 
     @Override
-    public List<Space> getAllByUserId(long userId) {
+    public List<Space> findByUserId(long userId) {
         return null;
     }
+
+    @Override
+    public List<Long> findIdByUserId(long userId) {
+        return null;
+    }
+
 }

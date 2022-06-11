@@ -30,4 +30,9 @@ public class TaskJdbcRepository implements TaskRepository {
     public List<Task> findBySpaceId(long spaceId) {
         return null;
     }
+
+    @Override
+    public List<Long> findIdBySpaceId(long userId) {
+        return null;
+    }
 }
