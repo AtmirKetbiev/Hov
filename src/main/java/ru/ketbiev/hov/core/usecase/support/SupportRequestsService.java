@@ -1,4 +1,4 @@
-package ru.ketbiev.hov.core.service;
+package ru.ketbiev.hov.core.usecase.support;
 
 import ru.ketbiev.hov.core.port.mq.Consumer;
 import ru.ketbiev.hov.core.port.mq.Producer;

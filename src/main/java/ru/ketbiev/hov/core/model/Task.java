@@ -1,18 +1,18 @@
 package ru.ketbiev.hov.core.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.time.OffsetDateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Task {
     private long id;
     private String title;
-    private Map<String, Boolean> pointMap = new HashMap<>();
+    private Boolean done;
+    private OffsetDateTime taskDate;
     private long spaceId;
-
-    public void addPointMap(String text, Boolean done) {
-        pointMap.put(text, done);
-    }
 }

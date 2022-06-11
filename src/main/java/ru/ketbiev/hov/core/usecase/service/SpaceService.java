@@ -1,4 +1,4 @@
-package ru.ketbiev.hov.core.service;
+package ru.ketbiev.hov.core.usecase.service;
 
 import ru.ketbiev.hov.core.model.Space;
 import ru.ketbiev.hov.core.port.repository.SpaceRepository;
@@ -23,7 +23,7 @@ public class SpaceService implements CrudService<Space> {
     }
 
     public List<Space> getAllByUserId(long id) {
-        return spaceRepository.getAllByUserId(id);
+        return spaceRepository.findByUserId(id);
     }
 
     @Override

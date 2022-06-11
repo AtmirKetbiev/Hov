@@ -6,12 +6,9 @@ import java.util.List;
 
 public interface SpaceRepository {
     Space add(Space space);
-
     Space get(long id);
-
     boolean update(Space space);
-
     boolean delete(long id);
-
-    List<Space> getAllByUserId(long userId);
+    List<Space> findByUserId(long userId);
+    List<Long> findIdByUserId(long userId);
 }

@@ -1,12 +1,27 @@
 package ru.ketbiev.hov.infrastructure.repository.simplmap;
 
 import ru.ketbiev.hov.core.model.Space;
+import ru.ketbiev.hov.core.port.repository.AccountRepository;
+import ru.ketbiev.hov.core.port.repository.NoteRepository;
 import ru.ketbiev.hov.core.port.repository.SpaceRepository;
+import ru.ketbiev.hov.core.port.repository.TaskRepository;
 
 import java.util.*;
 
 public class SpaceMapRepository implements SpaceRepository {
     private Map<Long, Space> spaces = new HashMap<>();
+
+    AccountRepository accountRepository;
+    NoteRepository noteRepository;
+    TaskRepository taskRepository;
+
+    public SpaceMapRepository(AccountRepository accountRepository,
+                              NoteRepository noteRepository,
+                              TaskRepository taskRepository) {
+        this.accountRepository = accountRepository;
+        this.noteRepository = noteRepository;
+        this.taskRepository = taskRepository;
+    }
 
     @Override
     public Space add(Space space) {
@@ -22,21 +37,35 @@ public class SpaceMapRepository implements SpaceRepository {
 
     @Override
     public boolean update(Space space) {
+        Space spaceOld = spaces.get(space.getId());
+        if (space.getCreateTime() == null) {
+            space.setCreateTime(spaceOld.getCreateTime());
+        }
         spaces.put(space.getId(), space);
         return true;
     }
 
     @Override
     public boolean delete(long id) {
+        accountRepository.findIdBySpaceId(id).forEach(accountId -> accountRepository.delete(accountId));
+        noteRepository.findIdBySpaceId(id).forEach(noteId -> noteRepository.delete(noteId));
+        taskRepository.findIdBySpaceId(id).forEach(taskId -> taskRepository.delete(taskId));
         spaces.remove(id);
         return true;
     }
 
     @Override
-    public List<Space> getAllByUserId(long userId) {
+    public List<Space> findByUserId(long userId) {
         return spaces.values().stream()
-                .filter(space -> space.getHostId() == userId
-                        || space.getParticipantIds().contains(userId))
+                .filter(space -> space.getHostId() == userId)
+                .toList();
+    }
+
+    @Override
+    public List<Long> findIdByUserId(long userId) {
+        return spaces.values().stream()
+                .filter(space -> space.getHostId() == userId)
+                .map(Space::getId)
                 .toList();
     }
 

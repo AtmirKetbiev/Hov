@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -16,9 +14,5 @@ public class Space {
     private String title;
     private OffsetDateTime createTime;
     private OffsetDateTime lastUpdate;
-    private List<Note> notes = new ArrayList<>();
-    private List<Task> tasks = new ArrayList<>();
-    private List<Account> accounts = new ArrayList<>();
     private long hostId;
-    private List<Long> participantIds = new ArrayList<>();
 }

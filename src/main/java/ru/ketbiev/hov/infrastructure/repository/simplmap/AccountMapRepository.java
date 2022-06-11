@@ -39,6 +39,14 @@ public class AccountMapRepository implements AccountRepository {
                 .toList();
     }
 
+    @Override
+    public List<Long> findIdBySpaceId(long userId) {
+        return accounts.values().stream()
+                .filter(space -> space.getSpaceId() == userId)
+                .map(Account::getId)
+                .toList();
+    }
+
     private long getId() {
         return accounts.keySet().stream()
                 .max(Comparator.naturalOrder())

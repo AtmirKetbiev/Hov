@@ -39,6 +39,14 @@ public class TaskMapRepository implements TaskRepository {
                 .toList();
     }
 
+    @Override
+    public List<Long> findIdBySpaceId(long userId) {
+        return tasks.values().stream()
+                .filter(space -> space.getSpaceId() == userId)
+                .map(Task::getId)
+                .toList();
+    }
+
     private long getId() {
         return tasks.keySet().stream()
                 .max(Comparator.naturalOrder())

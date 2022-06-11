@@ -1,4 +1,4 @@
-package ru.ketbiev.hov.core.service;
+package ru.ketbiev.hov.core.usecase.service;
 
 import ru.ketbiev.hov.core.model.User;
 import ru.ketbiev.hov.core.port.repository.UserRepository;

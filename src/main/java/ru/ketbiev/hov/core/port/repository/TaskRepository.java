@@ -6,12 +6,9 @@ import java.util.List;
 
 public interface TaskRepository {
     Task add(Task task);
-
     Task get(long id);
-
     boolean update(Task task);
-
     boolean delete(long id);
-
     List<Task> findBySpaceId(long spaceId);
+    List<Long> findIdBySpaceId(long userId);
 }

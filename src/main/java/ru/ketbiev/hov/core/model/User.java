@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,5 +15,4 @@ public class User {
     private String password;
     private OffsetDateTime createDate;
     private OffsetDateTime lastLoginDate;
-    private List<Space> spaces = new ArrayList<>();
 }

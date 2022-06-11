@@ -39,6 +39,14 @@ public class NoteMapRepository implements NoteRepository {
                 .toList();
     }
 
+    @Override
+    public List<Long> findIdBySpaceId(long userId) {
+        return notes.values().stream()
+                .filter(space -> space.getSpaceId() == userId)
+                .map(Note::getId)
+                .toList();
+    }
+
     private long getId() {
         return notes.keySet().stream()
                 .max(Comparator.naturalOrder())
