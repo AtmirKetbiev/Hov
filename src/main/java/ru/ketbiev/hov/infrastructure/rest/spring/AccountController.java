@@ -3,7 +3,7 @@ package ru.ketbiev.hov.infrastructure.rest.spring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.ketbiev.hov.core.model.Account;
-import ru.ketbiev.hov.core.service.AccountService;
+import ru.ketbiev.hov.core.usecase.service.AccountService;
 
 @RestController
 @RequestMapping("users/{user_id}/spaces/{spaces_id}/accounts")

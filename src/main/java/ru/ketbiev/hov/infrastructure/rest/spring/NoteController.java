@@ -3,7 +3,7 @@ package ru.ketbiev.hov.infrastructure.rest.spring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.ketbiev.hov.core.model.Note;
-import ru.ketbiev.hov.core.service.NoteService;
+import ru.ketbiev.hov.core.usecase.service.NoteService;
 
 @RestController
 @RequestMapping("users/{user_id}/spaces/{spaces_id}/notes")

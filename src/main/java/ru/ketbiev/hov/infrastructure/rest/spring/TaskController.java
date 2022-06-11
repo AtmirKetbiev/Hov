@@ -3,7 +3,7 @@ package ru.ketbiev.hov.infrastructure.rest.spring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.ketbiev.hov.core.model.Task;
-import ru.ketbiev.hov.core.service.TaskService;
+import ru.ketbiev.hov.core.usecase.service.TaskService;
 
 @RestController
 @RequestMapping("users/{user_id}/spaces/{spaces_id}/tasks")
