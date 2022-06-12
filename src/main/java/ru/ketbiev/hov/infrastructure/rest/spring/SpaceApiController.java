@@ -8,8 +8,8 @@ import ru.ketbiev.hov.core.usecase.service.SpaceService;
 import java.time.OffsetDateTime;
 
 @RestController
-@RequestMapping("users/{user_id}/spaces")
-public class SpaceController {
+@RequestMapping("api/users/{user_id}/spaces")
+public class SpaceApiController {
 
     @Autowired
     private SpaceService spaceService;

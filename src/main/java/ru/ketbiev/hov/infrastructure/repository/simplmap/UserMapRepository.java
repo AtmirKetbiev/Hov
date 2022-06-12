@@ -28,6 +28,11 @@ public class UserMapRepository implements UserRepository {
     }
 
     @Override
+    public List<User> getAll() {
+        return users.values().stream().toList();
+    }
+
+    @Override
     public boolean update(User user) {
         User userOld = users.get(user.getId());
         if (user.getCreateDate() == null) {

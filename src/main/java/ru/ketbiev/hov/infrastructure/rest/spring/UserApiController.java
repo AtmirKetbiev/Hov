@@ -8,8 +8,8 @@ import ru.ketbiev.hov.core.usecase.service.UserService;
 import java.time.OffsetDateTime;
 
 @RestController
-@RequestMapping("users")
-public class UserController {
+@RequestMapping("api/users")
+public class UserApiController {
 
     @Autowired
     private UserService userService;

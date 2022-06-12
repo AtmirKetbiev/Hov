@@ -6,8 +6,8 @@ import ru.ketbiev.hov.core.model.Account;
 import ru.ketbiev.hov.core.usecase.service.AccountService;
 
 @RestController
-@RequestMapping("users/{user_id}/spaces/{spaces_id}/accounts")
-public class AccountController {
+@RequestMapping("api/users/{user_id}/spaces/{spaces_id}/accounts")
+public class AccountApiController {
 
     @Autowired
     private AccountService accountService;

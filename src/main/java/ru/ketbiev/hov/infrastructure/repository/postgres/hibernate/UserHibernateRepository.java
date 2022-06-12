@@ -9,6 +9,9 @@ import ru.ketbiev.hov.core.model.User;
 import ru.ketbiev.hov.core.port.repository.UserRepository;
 import ru.ketbiev.hov.infrastructure.repository.postgres.dto.UserDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserHibernateRepository implements UserRepository {
 
     @Autowired
@@ -53,6 +56,11 @@ public class UserHibernateRepository implements UserRepository {
             session.close();
         }
         return user;
+    }
+
+    @Override
+    public List<User> getAll() {
+        return new ArrayList<>();
     }
 
     @Override

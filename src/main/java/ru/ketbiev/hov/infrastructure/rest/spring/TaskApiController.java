@@ -2,44 +2,44 @@ package ru.ketbiev.hov.infrastructure.rest.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.ketbiev.hov.core.model.Note;
-import ru.ketbiev.hov.core.usecase.service.NoteService;
+import ru.ketbiev.hov.core.model.Task;
+import ru.ketbiev.hov.core.usecase.service.TaskService;
 
 @RestController
-@RequestMapping("users/{user_id}/spaces/{spaces_id}/notes")
-public class NoteController {
+@RequestMapping("api/users/{user_id}/spaces/{spaces_id}/tasks")
+public class TaskApiController {
 
     @Autowired
-    private NoteService noteService;
+    private TaskService taskService;
 
     @GetMapping("/{id}")
-    public Note get(@PathVariable long user_id,
+    public Task get(@PathVariable long user_id,
                     @PathVariable long spaces_id,
                     @PathVariable long id) {
-        return noteService.get(id);
+        return taskService.get(id);
     }
 
     @PostMapping
-    public Note addNewNote(@PathVariable long user_id,
+    public Task addNewNote(@PathVariable long user_id,
                            @PathVariable long spaces_id,
-                           @RequestBody Note note) {
-        note.setSpaceId(spaces_id);
-        return noteService.add(note);
+                           @RequestBody Task task) {
+        task.setSpaceId(spaces_id);
+        return taskService.add(task);
     }
 
     @PutMapping
     public boolean updateNote(@PathVariable long user_id,
                               @PathVariable long spaces_id,
-                              @RequestBody Note note) {
-        note.setSpaceId(spaces_id);
-        return noteService.update(note);
+                              @RequestBody Task task) {
+        task.setSpaceId(spaces_id);
+        return taskService.update(task);
     }
 
     @DeleteMapping("/{id}")
     public boolean deleteNote(@PathVariable long user_id,
                               @PathVariable long spaces_id,
                               @PathVariable long id) {
-        return noteService.delete(id);
+        return taskService.delete(id);
     }
 
 }

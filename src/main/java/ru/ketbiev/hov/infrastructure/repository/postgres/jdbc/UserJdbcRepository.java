@@ -5,7 +5,9 @@ import ru.ketbiev.hov.core.port.repository.UserRepository;
 
 import java.sql.*;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class UserJdbcRepository implements UserRepository {
@@ -104,6 +106,11 @@ public class UserJdbcRepository implements UserRepository {
         } catch (SQLException e) {
             return null;
         }
+    }
+
+    @Override
+    public List<User> getAll() {
+        return new ArrayList<>();
     }
 
     @Override
